@@ -813,7 +813,7 @@ abstract class SchemaTest extends DatabaseTestCase
         $this->assertMetadataEquals($expected, $constraints);
     }
 
-    private function assertMetadataEquals($expected, $actual)
+    protected function assertMetadataEquals($expected, $actual)
     {
         switch (\strtolower(\gettype($expected))) {
             case 'object':
@@ -841,7 +841,7 @@ abstract class SchemaTest extends DatabaseTestCase
         $this->assertEquals($expected, $actual);
     }
 
-    private function normalizeArrayKeys(array &$array, $caseSensitive)
+    protected function normalizeArrayKeys(array &$array, $caseSensitive)
     {
         $newArray = [];
         foreach ($array as $value) {
@@ -865,7 +865,7 @@ abstract class SchemaTest extends DatabaseTestCase
         $array = $newArray;
     }
 
-    private function normalizeConstraints(&$expected, &$actual)
+    protected function normalizeConstraints(&$expected, &$actual)
     {
         if (\is_array($expected)) {
             foreach ($expected as $key => $value) {
@@ -880,7 +880,7 @@ abstract class SchemaTest extends DatabaseTestCase
         }
     }
 
-    private function normalizeConstraintPair(Constraint $expectedConstraint, Constraint $actualConstraint)
+    protected function normalizeConstraintPair(Constraint $expectedConstraint, Constraint $actualConstraint)
     {
         if ($expectedConstraint::className() !== $actualConstraint::className()) {
             return;
