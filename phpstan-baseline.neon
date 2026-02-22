@@ -405,7 +405,9 @@ parameters:
 			count: 1
 			path: framework/caching/Dependency.php
 
+		# Since the property contains a space in its name, the error cannot be resolved using PHPDoc.
 		-
-			message: "#^Property yii\\\\console\\\\Application\\:\\:\\$controller \\(yii\\\\console\\\\Controller\\|yii\\\\web\\\\Controller\\|null\\) does not accept yii\\\\base\\\\Controller\\<static\\(yii\\\\base\\\\Module\\)\\>\\.$#"
+			message: "#^Access to an undefined property yiiunit\\\\framework\\\\base\\\\NewComponent\\:\\:\\$as f\\.$#"
 			count: 1
-			path: framework/base/Module.php
+			path: tests/framework/base/ComponentTest.php
+			reportUnmatched: false # fails only for PHP8
